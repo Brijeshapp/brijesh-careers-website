@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ job.title if job else 'Job Not Found' }} - Brijesh Careers{% endblock %}
+
+{% block content %}
+{% if job %}
+<section class="job-detail">
+    <a href="/" class="back-link">&larr; Back to all jobs</a>
+    <h1>{{ job.title }}</h1>
+    <div class="job-info">
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Salary:</strong> {{ job.salary }}</p>
+    </div>
+    <div class="job-description">
+        <h2>About this role</h2>
+        <p>We are looking for a talented {{ job.title }} to join our growing team. This is an exciting opportunity to work on challenging projects and make a real impact.</p>
+        
+        <h2>Requirements</h2>
+        <ul>
+            <li>3+ years of relevant experience</li>
+            <li>Strong problem-solving skills</li>
+            <li>Excellent communication abilities</li>
+            <li>Team player with a growth mindset</li>
+        </ul>
+        
+        <h2>Benefits</h2>
+        <ul>
+            <li>Competitive salary and equity</li>
+            <li>Health, dental, and vision insurance</li>
+            <li>Flexible work arrangements</li>
+            <li>Professional development budget</li>
+        </ul>
+    </div>
+    <button class="btn btn-primary">Apply Now</button>
+</section>
+{% else %}
+<section class="not-found">
+    <h1>Job Not Found</h1>
+    <p>The job you're looking for doesn't exist.</p>
+    <a href="/" class="btn">View All Jobs</a>
+</section>
+{% endif %}
+{% endblock %}
